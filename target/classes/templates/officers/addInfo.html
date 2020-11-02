@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add info</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/officers/addInfo}" th:object="${officer}">
+    <label for="info">Add your information:</label>
+    <input type="text" th:field="*{info}" id="info"/>
+    <input type="submit" value="Add New Info!"/>
+</form>
+</body>
+</html>

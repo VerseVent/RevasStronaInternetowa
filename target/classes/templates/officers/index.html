@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Officers</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+<body>
+<a href="/policeDepartment" ><i class="fa fa-trash-o fa-lg"></i><h3>Main page</h3></a>
+<p align="center"><h2>Sellers</h2></p>
+<br>
+
+<table  class="table table-striped">
+    <tr><th>Name</th><th>Surname</th><th>Phone number</th><th>E-mail</th><th>Rank</th></tr>
+    <tr  th:each="list: ${officer}"> <td th:text="${list.name}">Name</td>
+        <td th:text="${list.surname}">Surname</td>
+        <td th:text="${list.phone}">Phone number</td>
+        <td th:text="${list.mail}">E-mail</td>
+        <td th:text="${list.rank}">Rank</td>
+
+        <td>
+            <a href="#" th:href="@{/officers/delete(id=${list.id})}" class="btn btn-danger">
+
+                <i class="fa fa-trash-o fa-lg"></i>Delete</a></td>
+
+        <td>
+            <a href="#" th:href="@{/officers/przekieruj(id=${list.id})}" class="btn btn-primary">
+
+                <i class="fa fa-trash-o fa-lg"></i>Update</a></td>
+
+        <td>
+            <a href="#" th:href="@{/officers/info(id=${list.id})}" class="btn btn-primary">
+
+                <i class="fa fa-trash-o fa-lg"></i>Info</a></td>
+
+    </tr>
+    <tr>
+        <td> Find person by mail</td>
+        <td>
+            <form action="http://localhost:8080/officers/search">
+                <input name="search">
+        </td>
+        <td>
+            <input type="submit">
+            </form>
+            <br>
+            <a href="#" th:href="@{/officers/new}">New seller</a>
+        </td>
+
+    </tr>
+
+
+</table>
+</body>
+</html>
